@@ -1,0 +1,9 @@
+{
+	"name": "DFDEVRebrick",
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "38d85b20-4670-46e6-b37d-09969cde48b0",
+		"tenantId": "5addb3d2-6309-40cf-a91b-7fd128e374aa"
+	}
+}
