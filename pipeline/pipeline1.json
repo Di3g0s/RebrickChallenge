@@ -1,0 +1,30 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-27.brazilsouth.logic.azure.com:443/workflows/c7e81574269b45c290c84a583e37be52",
+					"body": {
+						"username": "DiegoAlias",
+						"password": "Nerita.2016",
+						"Authorization": "key f27a6373acb335cfb1c308790a231d17"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
