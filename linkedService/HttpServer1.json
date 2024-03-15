@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://rebrickable.com/",
+			"url": "https://cdn.rebrickable.com/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
