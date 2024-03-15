@@ -5,9 +5,26 @@
 			{
 				"name": "Web1",
 				"type": "WebActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Get Rebrickable password",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Get Rebrickable username",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Get Rebrickable Authorization",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -20,9 +37,8 @@
 					"method": "POST",
 					"url": "https://prod-27.brazilsouth.logic.azure.com:443/workflows/c7e81574269b45c290c84a583e37be52/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WMA6CEl05iVauOunRgDlC_1WcEH92PaxF8qKA90624Q",
 					"body": {
-						"username": "DiegoAlias",
-						"password": "Nerita.2016",
-						"Authorization": "key f27a6373acb335cfb1c308790a231d17"
+						"value": "@concat('{\"username\":\"',activity('Get Rebrickable username').output.value,'\",\"password\":\"',activity('Get Rebrickable password').output.value,'\",\"Authorization\":\"key ',activity('Get Rebrickable Authorization').output.value,'\"}')",
+						"type": "Expression"
 					}
 				}
 			},
@@ -50,8 +66,6 @@
 			{
 				"name": "Get Rebrickable username",
 				"type": "WebActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -62,14 +76,17 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://kvrebrick.vault.azure.net/secrets/Rebrick-password/23a7de45fba24aff835dded154f06ade"
+					"method": "GET",
+					"url": "https://kvrebrick.vault.azure.net/secrets/Rebrick-username/?api-version=7.0",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://vault.azure.net"
+					}
 				}
 			},
 			{
 				"name": "Get Rebrickable Authorization",
 				"type": "WebActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -80,7 +97,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://kvrebrick.vault.azure.net/secrets/Rebrick-password/23a7de45fba24aff835dded154f06ade"
+					"method": "GET",
+					"url": "https://kvrebrick.vault.azure.net/secrets/Rebrick-Authorization/?api-version=7.0",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://vault.azure.net"
+					}
 				}
 			}
 		],
