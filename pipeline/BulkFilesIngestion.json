@@ -62,7 +62,7 @@
 									"referenceName": "DelimitedText3",
 									"type": "DatasetReference",
 									"parameters": {
-										"TestArray": {
+										"FileName": {
 											"value": "@item()",
 											"type": "Expression"
 										}

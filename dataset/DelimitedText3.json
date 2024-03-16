@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"TestArray": {
+			"FileName": {
 				"type": "string"
 			}
 		},
@@ -16,7 +16,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "@concat(dataset().TestArray,'.gz')",
+					"value": "@concat(dataset().FileName,'.gz')",
 					"type": "Expression"
 				}
 			},
