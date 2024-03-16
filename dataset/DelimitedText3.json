@@ -9,8 +9,7 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation",
-				"relativeUrl": "media/downloads/colors.csv.gz?1710486480.82986"
+				"type": "HttpServerLocation"
 			},
 			"columnDelimiter": ",",
 			"compressionCodec": "gzip",
