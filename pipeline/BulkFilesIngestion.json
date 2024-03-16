@@ -84,7 +84,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FileName": {
-											"value": "@item()",
+											"value": "@concat(item(),'.csv')",
 											"type": "Expression"
 										}
 									}
@@ -99,8 +99,9 @@
 			"RelativesURL": {
 				"type": "array",
 				"defaultValue": [
-					"themes.csv",
-					"colors.csv"
+					"themes",
+					"colors",
+					"parts"
 				]
 			},
 			"BaseURL": {
