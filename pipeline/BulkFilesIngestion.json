@@ -60,7 +60,13 @@
 							"inputs": [
 								{
 									"referenceName": "DelimitedText3",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TestArray": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
