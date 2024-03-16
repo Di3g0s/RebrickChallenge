@@ -19,6 +19,10 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
+				"folderPath": {
+					"value": "@concat(\n    'Year=',FormatDateTime(utcnow(),'yyyy'),\n    '/Month=',FormatDateTime(utcnow(),'MM'),\n    '/Day=',FormatDateTime(utcnow(),'dd')\n)",
+					"type": "Expression"
+				},
 				"fileSystem": "rebrickable"
 			},
 			"columnDelimiter": ",",
