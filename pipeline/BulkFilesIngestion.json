@@ -6,7 +6,12 @@
 				"name": "ForEach1",
 				"type": "ForEach",
 				"dependsOn": [],
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "BaseURL",
+						"value": "https://cdn.rebrickable.com/media/downloads/"
+					}
+				],
 				"typeProperties": {
 					"items": {
 						"value": "@pipeline().parameters.RelativesURL",
@@ -65,6 +70,10 @@
 										"FileName": {
 											"value": "@item()",
 											"type": "Expression"
+										},
+										"BaseURL": {
+											"value": "@pipeline().parameters.BaseURL",
+											"type": "Expression"
 										}
 									}
 								}
@@ -93,6 +102,10 @@
 					"themes.csv",
 					"colors.csv"
 				]
+			},
+			"BaseURL": {
+				"type": "string",
+				"defaultValue": "https://cdn.rebrickable.com/media/downloads/"
 			}
 		},
 		"annotations": []

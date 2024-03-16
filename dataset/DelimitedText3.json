@@ -3,10 +3,19 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HttpServer1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"BaseURL": {
+					"value": "@dataset().BaseURL",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"FileName": {
+				"type": "string"
+			},
+			"BaseURL": {
 				"type": "string"
 			}
 		},
